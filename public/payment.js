@@ -36,6 +36,7 @@ fetch('/config')
     document.querySelector('#payNow').addEventListener('click', function (evt) {
       evt.preventDefault();
       $("#pay_rotate").toggle();
+      console.log(data.sessionId);
       createCheckoutSession().then(function (data) {
         $("#pay_rotate").toggle();
         stripe
