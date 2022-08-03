@@ -20,7 +20,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  const path = resolve(process.env.STATIC_DIR + '/index.html');
+  const path = resolve('/index.html');
   res.sendFile(path);
 });
 
@@ -36,6 +36,7 @@ app.get('/config', async (req, res) => {
 // Fetch the Checkout Session to display the JSON result on the success page
 app.get('/checkout-session', async (req, res) => {
   const { sessionId } = req.query;
+  console.log(sessionId);
   const session = await stripe.checkout.sessions.retrieve(sessionId);
   res.send(session);
 });
