@@ -37,7 +37,7 @@ fetch('/config')
       evt.preventDefault();
       $("#pay_rotate").toggle();
       createCheckoutSession().then(function (data) {
-        console.log(data.sessionId);
+        console.log(data);
         $("#pay_rotate").toggle();
         stripe
           .redirectToCheckout({
